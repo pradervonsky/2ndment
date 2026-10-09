@@ -1,0 +1,32 @@
+# =============================================================================
+# STRUCTURED INDICATORS (from supervision data, no AI involved)
+#   field : field name in data/appraisers.yaml (under "structured")
+#   cap   : the value at which risk reaches its maximum. risk = min(|value| / cap, 1)
+#   weight, label : same as in jev_questions.yaml
+# =============================================================================
+
+indicators:
+
+  prior_sanctions:
+    field: prior_sanctions
+    cap: 2
+    weight: 15
+    label: riwayat sanksi sebelumnya
+
+  complaints_12m:
+    field: complaints_12m
+    cap: 3
+    weight: 10
+    label: jumlah pengaduan 12 bulan terakhir
+
+  value_deviation:
+    field: value_deviation_pct
+    cap: 30
+    weight: 15
+    label: deviasi nilai terhadap indeks pasar
+
+  workload:
+    field: reports_per_month
+    cap: 40
+    weight: 10
+    label: volume laporan per bulan yang tinggi

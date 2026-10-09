@@ -1,0 +1,27 @@
+# Fake Jev answers for offline demos. The keys must match config/jev_questions.yaml.
+PP-001:
+  boilerplate: {value: 0.05}
+  adjustments_explained: {value: 0.95}
+  condition_mismatch: {value: 0.02}
+  assumptions_disclosed: {value: 0.97}
+  value_targeting: {value: 0.05}
+  comparable_quality: {value: 3.0, conf: 0.90}
+  comparable_source: {value: transaction, conf: 0.90}
+
+PP-002:
+  boilerplate: {value: 0.55}
+  adjustments_explained: {value: 0.40}
+  condition_mismatch: {value: 0.10}
+  assumptions_disclosed: {value: 0.85}
+  value_targeting: {value: 0.20}
+  comparable_quality: {value: 2.0, conf: 0.55}
+  comparable_source: {value: listing, conf: 0.85}
+
+PP-003:
+  boilerplate: {value: 0.95}
+  adjustments_explained: {value: 0.03}
+  condition_mismatch: {value: 0.97}
+  assumptions_disclosed: {value: 0.10}
+  value_targeting: {value: 0.90}
+  comparable_quality: {value: 0.0, conf: 0.95}
+  comparable_source: {value: unspecified, conf: 0.70}

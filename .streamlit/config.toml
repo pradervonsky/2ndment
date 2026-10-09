@@ -1,0 +1,61 @@
+# Tema demo risk engine (test-site/app.py) — hanya lima warna:
+#   #1a535c gelap (latar)   #f7fff7 terang (teks, elemen terang)
+#   #4ecdc4 Rendah          #ffe66d Sedang          #ff6b6b Tinggi
+# Streamlit membaca file ini dari folder tempat `streamlit run` dijalankan (~/2ndment).
+
+[theme]
+base = "dark"
+backgroundColor = "#1a535c"
+secondaryBackgroundColor = "#1a535c"
+textColor = "#f7fff7"
+primaryColor = "#f7fff7"
+linkColor = "#f7fff7"
+borderColor = "#f7fff7"
+showWidgetBorder = true
+showSidebarBorder = true
+codeBackgroundColor = "#1a535c"
+codeTextColor = "#f7fff7"
+dataframeBorderColor = "#f7fff7"
+dataframeHeaderBackgroundColor = "#1a535c"
+dataframeHeaderTextColor = "#f7fff7"
+
+# warna status: hijau = Rendah/lolos, kuning = Sedang/peringatan, merah = Tinggi/gagal
+greenColor = "#4ecdc4"
+yellowColor = "#ffe66d"
+orangeColor = "#ffe66d"
+redColor = "#ff6b6b"
+blueColor = "#f7fff7"
+violetColor = "#f7fff7"
+grayColor = "#f7fff7"
+
+# kotak st.success / st.warning / st.error / st.info: latar warna solid, teks gelap
+greenBackgroundColor = "#4ecdc4"
+yellowBackgroundColor = "#ffe66d"
+orangeBackgroundColor = "#ffe66d"
+redBackgroundColor = "#ff6b6b"
+blueBackgroundColor = "#f7fff7"
+violetBackgroundColor = "#f7fff7"
+grayBackgroundColor = "#f7fff7"
+greenTextColor = "#1a535c"
+yellowTextColor = "#1a535c"
+orangeTextColor = "#1a535c"
+redTextColor = "#1a535c"
+blueTextColor = "#1a535c"
+violetTextColor = "#1a535c"
+grayTextColor = "#1a535c"
+
+chartCategoricalColors = ["#f7fff7", "#4ecdc4", "#ffe66d", "#ff6b6b"]
+chartSequentialColors = ["#1a535c", "#f7fff7"]
+
+[theme.sidebar]           # sidebar "Pengaturan demo": latar terang, teks gelap
+backgroundColor = "#f7fff7"
+secondaryBackgroundColor = "#f7fff7"
+textColor = "#1a535c"
+primaryColor = "#1a535c"
+linkColor = "#1a535c"
+borderColor = "#1a535c"
+codeBackgroundColor = "#f7fff7"
+codeTextColor = "#1a535c"
+
+[client]
+toolbarMode = "minimal"   # sembunyikan tombol Deploy saat demo

@@ -1,0 +1,33 @@
+mode:
+  mock: false            # true = offline demo (no API key / Ollama needed). The MOCK=1 env var also forces this.
+
+llm:                    # local LLM via Ollama
+  url: http://localhost:11434/api/chat
+  model: qwen3.5:2b
+  temperature: 0.2
+  think: false          # false = no hidden reasoning: much faster, and the answer is never cut off
+  timeout_seconds: 180
+
+vision:                 # photo -> caption via Ollama (Input tab in app.py)
+  model: qwen3.5:2b
+  temperature: 0.1
+  max_side_px: 1024     # photos are downscaled first so captioning stays fast
+  num_ctx: 8192         # room for the model's hidden reasoning + the caption
+
+scoring:                # how answers become a score (engine/scoring.py, METHODS)
+  method: weighted      # weighted = contrib = weight × risk, total = sum
+
+review:               # when an indicator is sent for manual review
+  min_confidence: 0.6               # for Score and Choice
+  noul_uncertain_band: [0.35, 0.65] # Noul has no confidence value, so the middle band counts as "uncertain"
+
+tiers:                  # tier = the first one whose min_score is reached (sorted automatically)
+  - {name: Tinggi, min_score: 55}
+  - {name: Sedang, min_score: 30}
+  - {name: Rendah, min_score: 0}
+
+narration:
+  top_drivers: 3        # number of main drivers given to the LLM
+
+output:
+  csv_path: output/risk_engine_output.csv

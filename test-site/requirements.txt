@@ -1,0 +1,7 @@
+typesafe-sdk
+pandas
+requests
+pyyaml
+python-dotenv
+streamlit
+pillow

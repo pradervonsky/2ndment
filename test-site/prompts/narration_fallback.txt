@@ -1,0 +1,1 @@
+Penilai {id} memperoleh skor {score:.0f}/100 (risiko {tier}). Faktor penyumbang utama: {drivers}. Ini merupakan indikasi untuk prioritas pemeriksaan, bukan kesimpulan adanya pelanggaran.

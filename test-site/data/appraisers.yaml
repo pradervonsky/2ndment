@@ -1,0 +1,35 @@
+# SYNTHETIC DATA. Do not use real supervision data with an external API.
+appraisers:
+
+  - id: PP-001
+    structured: {prior_sanctions: 0, complaints_12m: 0, value_deviation_pct: 3, reports_per_month: 8}
+    report: >-
+      Objek berupa rumah tinggal 2 lantai, LT 120 m2, LB 150 m2, di Bekasi Barat.
+      Pendekatan pasar dengan tiga pembanding transaksi (Jan-Mar 2026) radius 500 m.
+      Pembanding 1 disesuaikan -5% karena lebar jalan 8 m vs 6 m pada objek; pembanding 2
+      +3% karena bangunan lebih tua; pembanding 3 -2% karena posisi hook. Kondisi bangunan
+      baik dengan rembesan ringan di dinding belakang. Asumsi: legalitas sesuai SHM yang
+      diperlihatkan; tidak dilakukan uji struktur.
+    photo_captions: >-
+      Fasad terawat, cat relatif baru. Noda rembesan kecil di dinding belakang. Atap genteng utuh.
+
+  - id: PP-002
+    structured: {prior_sanctions: 0, complaints_12m: 1, value_deviation_pct: 12, reports_per_month: 25}
+    report: >-
+      Objek berupa ruko 3 lantai di Surabaya. Nilai pasar ditentukan dengan pendekatan pasar
+      mempertimbangkan kondisi pasar yang stabil dan lokasi strategis. Digunakan dua data
+      penawaran (bukan transaksi) di kawasan yang sama; penyesuaian 10% diterapkan secara umum.
+      Kondisi bangunan cukup baik. Asumsi dan syarat pembatas tercantum pada lampiran.
+    photo_captions: >-
+      Ruko dengan cat pudar, rolling door berkarat ringan. Tidak terlihat kerusakan struktur.
+
+  - id: PP-003
+    structured: {prior_sanctions: 1, complaints_12m: 3, value_deviation_pct: 38, reports_per_month: 60}
+    report: >-
+      Objek berupa gudang di Makassar. Berdasarkan analisis mendalam dan pertimbangan
+      profesional, nilai pasar objek adalah Rp4.500.000.000, sesuai kebutuhan fasilitas kredit
+      yang diajukan debitur. Lokasi strategis dan prospek kawasan sangat baik. Data pembanding
+      diperoleh dari survei lapangan. Kondisi bangunan sangat baik dan terawat.
+    photo_captions: >-
+      Retakan diagonal panjang di dinding samping. Sebagian atap seng berlubang dan berkarat.
+      Genangan air di lantai gudang.

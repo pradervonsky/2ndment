@@ -1,0 +1,30 @@
+# Jev checks the narrative produced by the local LLM.
+# If any check exceeds max_noul, the narrative is replaced with prompts/narration_fallback.txt
+
+enabled: true
+
+# BUKTI must contain everything the LLM was given (prompts/narration.txt), otherwise
+# correct statements about the score, tier or manual-review flags are judged "unsupported".
+# Available fields: id, score, tier, evidence, drivers, review, narrative
+state_template: |
+  BUKTI:
+  Penilai: {id} | Skor: {score:.0f}/100 | Tingkat: {tier}
+  {evidence}
+  Indikator perlu reviu manual: {review}
+
+  NARASI:
+  {narrative}
+
+checks:
+
+  unsupported:
+    max_noul: 0.5
+    instructions: >-
+      The NARASI contains a claim, number, or accusation not supported by the BUKTI list.
+      Paraphrases and Indonesian decimal commas (15,0 = 15.0) count as supported.
+
+  asserts_guilt:
+    max_noul: 0.5
+    instructions: >-
+      The NARASI states that a violation has definitely occurred rather than
+      describing risk indications.

@@ -1,0 +1,59 @@
+/* Gaya tambahan untuk app.py (dimuat dengan st.html). Warna tema dasar: ~/2ndment/.streamlit/config.toml */
+/* `kode` inline mengikuti ukuran teks di sekitarnya (bawaan Streamlit lebih kecil) */
+:not(pre) > code { font-size: 0.92em !important; }  /* monospace tampak lebih besar pada 1em */
+[data-testid="stMain"] :not(pre) > code { color: #ffe66d !important; }  /* sidebar terang tetap gelap */
+/* latar `kode` sama dengan latar halaman, jadi padding hanya tampak sebagai celah; ikuti baris teks */
+:not(pre) > code { padding: 0 !important; line-height: inherit !important; vertical-align: baseline; }
+.jev-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.jev-table th, .jev-table td { border: 1px solid rgba(247,255,247,0.3); padding: 8px 10px;
+  vertical-align: top; text-align: left; white-space: nowrap; }
+.jev-table td.wrap { white-space: normal; overflow-wrap: break-word; min-width: 14rem; }
+.jev-table th { font-weight: 600; }
+.jev-table code { white-space: nowrap; }
+.ret { display: grid; grid-template-columns: 6.5rem 1fr 3.5rem; gap: 6px; align-items: center; }
+.ret + .ret { margin-top: 6px; }
+.track { height: 8px; border-radius: 4px; background: rgba(247,255,247,0.2); overflow: hidden; }
+.fill { height: 100%; border-radius: 4px; background: #f7fff7; }
+.jev-table td.flag, .jev-table td.flag * { background: #ff6b6b !important; color: #1a535c !important; font-weight: 600; }
+/* tooltip (?) dan tombol -/+ : sorot #4ecdc4 agar beda dari latar aplikasi */
+[data-baseweb="popover"] [data-baseweb="tooltip"], [data-baseweb="popover"] [data-baseweb="tooltip"] > div,
+[data-testid="stTooltipContent"] { background: #4ecdc4 !important; color: #1a535c !important; }
+[data-testid="stTooltipContent"] *, [data-testid="stTooltipContent"] code { color: #1a535c !important; background: transparent !important; }
+[data-testid="stNumberInputStepDown"]:hover:not(:disabled),
+[data-testid="stNumberInputStepUp"]:hover:not(:disabled) { background: #4ecdc4 !important; color: #1a535c !important; }
+/* garis tipis antara kolom Data entry dan Laporan penilaian di tab Input */
+[data-testid="stColumn"]:has(> div .st-key-report) {
+  border-left: 1px solid rgba(247,255,247,0.3); padding-left: 2rem; }
+/* judul sidebar sejajar dengan judul halaman */
+/* jarak atas kecil agar hasil analisis muat tanpa scroll; judul sidebar sejajar judul halaman */
+[data-testid="stMainBlockContainer"] { padding-top: 24px !important; }
+[data-testid="stSidebarUserContent"] { margin-top: -26px; }
+[data-testid="stSidebar"] h2 { padding-top: 0 !important; }
+/* unggah foto: tombol Upload dan keterangan (200MB • JPG…) dalam satu baris */
+[data-testid="stFileUploaderDropzone"]:has([data-testid="stFileUploaderDropzoneInstructions"]) { flex-direction: row !important; align-items: center; gap: 12px; }
+/* kotak foto: border dari container saja; nama/ikon file bisa diklik untuk ganti foto */
+.st-key-photo_box [data-testid="stFileUploaderDropzone"] { border: none !important; padding: 0 !important;
+  background: transparent !important; position: relative; min-height: 0 !important; }
+.st-key-photo_box button[aria-label="Add files"] { position: absolute !important; inset: 0; width: 100%;
+  height: 100%; opacity: 0; z-index: 1; cursor: pointer; }
+.st-key-photo_box [data-testid="stFileChipDeleteBtn"] { position: relative; z-index: 2; }
+.st-key-photo_box [data-testid="stFileUploaderDropzone"]:hover [data-testid="stFileChipName"] { text-decoration: underline; }
+/* foto terpilih: [ikon nama.jpg ×] [Generate] dalam satu baris; × tepat di kanan nama file */
+.st-key-photo_box [data-testid="stElementContainer"]:has([data-testid="stFileUploader"]) {
+  flex: 0 0 auto !important; width: auto !important; }
+.st-key-photo_box [data-testid="stFileUploader"] { width: auto !important; }
+.st-key-photo_box [data-testid="stFileChip"] { justify-content: flex-start !important; gap: 10px; width: auto !important; }
+.st-key-photo_box [data-testid="stFileChipDeleteBtn"] { margin-left: 0 !important; }
+/* "| qwen duration" di label deskripsi: abu-abu seperti st.caption */
+.st-key-photo_captions .stMarkdownColoredText { color: #f7fff7 !important; opacity: 0.6; }
+
+/* Data entry: slider + kotak angka, tanpa tombol − / + */
+.st-key-structured_inputs [data-testid="stNumberInputStepDown"],
+.st-key-structured_inputs [data-testid="stNumberInputStepUp"] { display: none !important; }
+.st-key-structured_inputs [data-testid="stNumberInputField"] { text-align: center; }
+.st-key-structured_inputs [data-testid="stSliderThumbValue"] { display: none !important; }  /* angka sudah di kotak */
+.st-key-structured_inputs .struct-label { font-size: 0.875rem; margin: 0 !important; white-space: nowrap; }
+.st-key-structured_inputs [data-testid="stMarkdown"] { margin-top: 0.25rem; margin-bottom: -0.75rem; }
+/* ikon (?) tepat di kanan teks label, bukan di ujung kolom */
+.st-key-structured_inputs [data-testid="stMarkdown"] > div { justify-content: flex-start !important; gap: 6px; align-items: center; }
+.st-key-structured_inputs [data-testid="stMarkdown"] [data-testid="stMarkdownContainer"] { flex: 0 1 auto !important; width: auto !important; margin-bottom: 0 !important; }

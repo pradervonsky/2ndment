@@ -1,0 +1,89 @@
+# =============================================================================
+# DOCUMENT INDICATORS (evaluated by Jev)
+# One block = one indicator. To add an indicator, copy a block and change its key.
+#
+#   type        : noul | score | choice
+#   weight      : weight in the total score (together with structured_indicators.yaml it should sum to 100)
+#   label       : Indonesian text used in the narrative
+#   instructions: the question for Jev (keep it atomic: one red flag per question)
+#
+# Mapping to risk (0 = safe, 1 = risky):
+#   noul   -> risk_if_true: true  (statement true = risky) / false (statement true = safe)
+#   score  -> level_risk : one value per criterion, in the same order as criteria
+#   choice -> option_risk: one value per option
+# =============================================================================
+
+state_template: |
+  LAPORAN PENILAIAN (kutipan):
+  {report}
+
+  DESKRIPSI FOTO OBJEK:
+  {photo_captions}
+
+questions:
+
+  boilerplate:
+    type: noul
+    weight: 8
+    label: argumentasi nilai bersifat generik (boilerplate)
+    risk_if_true: true
+    instructions: >-
+      The valuation reasoning is generic boilerplate that could apply to almost any
+      property, with no property-specific evidence.
+
+  adjustments_explained:
+    type: noul
+    weight: 10
+    label: penyesuaian data pembanding tidak dijelaskan
+    risk_if_true: false
+    instructions: >-
+      Every adjustment applied to the comparable properties is explicitly justified
+      with a property-specific reason.
+
+  condition_mismatch:
+    type: noul
+    weight: 10
+    label: kondisi bangunan dalam laporan bertentangan dengan foto
+    risk_if_true: true
+    instructions: >-
+      The building condition stated in the report contradicts the photo descriptions.
+
+  assumptions_disclosed:
+    type: noul
+    weight: 5
+    label: asumsi dan syarat pembatas tidak diungkapkan
+    risk_if_true: false
+    instructions: >-
+      The report explicitly discloses its key assumptions and limiting conditions.
+
+  value_targeting:
+    type: noul
+    weight: 10
+    label: nilai tampak disesuaikan dengan kebutuhan klien
+    risk_if_true: true
+    instructions: >-
+      The concluded value appears set to match a figure needed by the client (e.g. a
+      loan amount) rather than derived from the evidence.
+
+  comparable_quality:
+    type: score
+    weight: 4
+    label: kualitas data pembanding lemah
+    instructions: Quality of the comparable-sales evidence supporting the value
+    criteria:
+      - No comparables, or comparables not identified
+      - Comparables identified but dissimilar or poorly described
+      - Comparables reasonably similar with some description
+      - Comparables similar, recent, well described and verifiable
+    level_risk: [1.0, 0.67, 0.33, 0.0]
+
+  comparable_source:
+    type: choice
+    weight: 3
+    label: sumber data pembanding lemah atau tidak jelas
+    instructions: What kind of data the comparables are based on
+    criteria:
+      transaction: Actual completed sale transactions
+      listing: Asking or offer prices only, not completed sales
+      unspecified: The source or nature of the comparables is not stated
+    option_risk: {transaction: 0.0, listing: 0.5, unspecified: 1.0}
